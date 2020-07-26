@@ -1,6 +1,6 @@
 *******************************************************************************************  
-#### This is the new repository for the Auto Case app.
-#### Go to the README on https://github.com/vshah2799/AutoCaseAppAndroidStudio to find out more.
+# This is the new repository for the Auto Case app.
+# Go to the README on https://github.com/vshah2799/AutoCaseAppAndroidStudio to find out more.
 *******************************************************************************************  
 
 Vishal Shah
