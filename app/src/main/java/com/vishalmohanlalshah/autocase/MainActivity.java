@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         /*text is set to tempString.totoString() because the toString()
         method extracts the pure String from the StringBuilder.
         The toString() method is needed because you cannot directly
-        convert a StringBuilder object to a */
+        convert a StringBuilder object to a String */
         text = tempString.toString();
     }
 
