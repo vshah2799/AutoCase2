@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //This variable, "text", is the text that the user inputs into the text box in this activity
     private String text;
-    private boolean ranFlag =  false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //Standard Android code when creating an app
@@ -51,25 +50,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             /*This makes tempText all uppercase and then text gets set to it
             It does not matter if there are any special characters (ex: *$%^,\')
             because the toUpperCase methods handles it*/
-            text = tempText.toUpperCase();
+            text = upperCase(tempText);
         }
 
         else if(view.getId() == R.id.button2) {
             /*This makes tempText all lowercase and then text gets set to it
             It does not matter if there are any special characters (ex: *$%^,\')
             because the toLowerCase methods handles it*/
-            text = tempText.toLowerCase();
+            text = lowerCase(tempText);
         }
 
         else if((view.getId() == R.id.button3)) {
             //This calls altAndRanMethod if the Alternate button is clicked
-            altAndRanMethod(tempText);
+            text = altAndRanMethod(tempText, false);
         }
 
         else if(view.getId() == R.id.button4){
             //The ranFlag is set to true because the user selected the random button and then altAndRanMethod is called
-            ranFlag = true;
-            altAndRanMethod(tempText);
+            text = altAndRanMethod(tempText, true);
         }
         else{
             //This calls the method openActivityHistory because the user must have selected the HISTORY button
@@ -82,7 +80,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         openActivity2(view);
     }
 
-    public void altAndRanMethod(String tempText){
+
+
+    //These two methods were created for abstraction.
+    //They uppercase/lowercase the text that is passed into the method and then return it
+    public String upperCase(String text){
+        return text.toUpperCase();
+    }
+    public String lowerCase(String text){
+        return text.toLowerCase();
+    }
+
+
+    public String altAndRanMethod(String tempText, Boolean ranFlag){
         //An ArrayList is created
         ArrayList<String> letList = new ArrayList<>();
 
@@ -128,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         method extracts the pure String from the StringBuilder.
         The toString() method is needed because you cannot directly
         convert a StringBuilder object to a String */
-        text = tempString.toString();
+        return tempString.toString();
     }
 
 
@@ -138,7 +148,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = new Intent(this, MainActivity2.class);
         //This lets the "text" variable be passed into the next activity so that it can be displayed
         intent.putExtra("text", text);
-
         //This starts the new activity
         startActivity(intent);
     }
