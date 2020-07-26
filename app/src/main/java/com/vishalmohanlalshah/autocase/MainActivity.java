@@ -3,17 +3,11 @@
 package com.vishalmohanlalshah.autocase;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import java.io.File;
-
-import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -21,7 +15,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //This variable, "text", is the text that the user inputs into the text box in this activity
     private String text;
-    private String textForRan;
     private boolean ranFlag =  false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
